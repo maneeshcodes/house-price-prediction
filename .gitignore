@@ -205,5 +205,10 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
-"models/*.pkl" 
-"models/*.pkl" 
+
+# Ignore all model files
+models/*.pkl 
+
+
+# Ignore dataset files
+datasets/
