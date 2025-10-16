@@ -53,9 +53,17 @@ div.stButton > button:first-child:hover {
 
 if st.button("Predict Price"):
     # Your prediction logic here
-    input_df = pd.DataFrame([[median_income, house_age, rooms, bedrooms, population, households, longitude, latitude, ocean_proximity]],
-                            columns=["median_income","housing_median_age","total_rooms","total_bedrooms",
-                                     "population","households","longitude","latitude","ocean_proximity"])
+    input_df = pd.DataFrame({
+    "longitude": [longitude],
+    "latitude": [latitude],
+    "housing_median_age": [house_age],
+    "total_rooms": [rooms],
+    "total_bedrooms": [bedrooms],
+    "population": [population],
+    "households": [households],
+    "median_income": [median_income],
+    "ocean_proximity": [ocean_proximity]
+})
     price = model.predict(input_df)
     st.success(f"Predicted Median House Value: ${price[0]:,.2f}")
 
